@@ -14,6 +14,8 @@ vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 -- Move line down (v)
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+-- esc to exit terminal insert mode
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]]);
 
 --telescope
 local builtin = require('telescope.builtin')
