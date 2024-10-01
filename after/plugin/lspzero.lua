@@ -44,3 +44,6 @@ require('mason-lspconfig').setup({
         end,
     },
 })
+
+--language servers that arent in mason
+require'lspconfig'.dartls.setup{}
