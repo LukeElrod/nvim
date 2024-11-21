@@ -5,6 +5,9 @@ local lsp_zero = require('lsp-zero')
 local lsp_attach = function(client, bufnr)
     local opts = { buffer = bufnr }
 
+    -- we are using treesitter not this
+    client.server_capabilities.semanticTokensProvider = nil
+
     vim.keymap.set('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
     vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
