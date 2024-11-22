@@ -1,12 +1,28 @@
-local lsp_zero = require('lsp-zero')
+vim.opt.signcolumn = 'yes'
 
--- lsp_attach is where you enable features that only work
+-- Add cmp_nvim_lsp capabilities settings to lspconfig
+-- This should be executed before you configure any language server
+local lspconfig_defaults = require('lspconfig').util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+  'force',
+  lspconfig_defaults.capabilities,
+  require('cmp_nvim_lsp').default_capabilities()
+)
+
+-- This is where you enable features that only work
 -- if there is a language server active in the file
-local lsp_attach = function(client, bufnr)
-    local opts = { buffer = bufnr }
+vim.api.nvim_create_autocmd('LspAttach', {
+  desc = 'LSP actions',
+  callback = function(event)
+    local id = vim.tbl_get(event, 'data', 'client_id')
+    local client = id and vim.lsp.get_client_by_id(id)
+    if client == nil then
+      return
+    end
 
-    -- we are using treesitter not this
+    -- Disable semantic highlights
     client.server_capabilities.semanticTokensProvider = nil
+    local opts = {buffer = event.buf}
 
     vim.keymap.set('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
     vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
@@ -16,26 +32,12 @@ local lsp_attach = function(client, bufnr)
     vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
     vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-    vim.keymap.set({ 'n', 'x' }, '=', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+    vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-
-    if client.name == "dartls" then
-        vim.opt.tabstop = 2
-        vim.opt.shiftwidth = 2
-        vim.opt.softtabstop = 2
-    else
-        vim.opt.tabstop = 4
-        vim.opt.softtabstop = 4
-        vim.opt.shiftwidth = 4
-    end
-end
-
-lsp_zero.extend_lspconfig({
-    sign_text = true,
-    lsp_attach = lsp_attach,
-    capabilities = require('cmp_nvim_lsp').default_capabilities(),
+  end,
 })
 
+--language servers
 require('mason').setup({})
 require('mason-lspconfig').setup({
     handlers = {
@@ -44,6 +46,49 @@ require('mason-lspconfig').setup({
         end,
     },
 })
+require'lspconfig'.dartls.setup{
+    on_attach = function(client)
+         vim.opt.tabstop = 2
+         vim.opt.shiftwidth = 2
+         vim.opt.softtabstop = 2
+    end,
+}
 
---language servers that arent in mason
-require'lspconfig'.dartls.setup{}
+--cmp config
+local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
+
+cmp.setup({
+    sources = {
+        {name = 'nvim_lsp'},
+    },
+    mapping = cmp.mapping.preset.insert({
+        -- Navigate between completion items
+        ['<C-k>'] = cmp.mapping.select_prev_item({behavior = 'select'}),
+        ['<C-j>'] = cmp.mapping.select_next_item({behavior = 'select'}),
+
+        -- `Enter` key to confirm completion
+        ['<Tab>'] = cmp.mapping.confirm({select = false}),
+        ['<C-e>'] = cmp.mapping.abort(),
+
+        -- Ctrl+Space to trigger completion menu
+        ['<C-Space>'] = cmp.mapping.complete(),
+
+        -- Navigate between snippet placeholder
+        ['<C-f>'] = cmp_action.vim_snippet_jump_forward(),
+        ['<C-b>'] = cmp_action.vim_snippet_jump_backward(),
+
+        -- Scroll up and down in the completion documentation
+        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    }),
+    snippet = {
+        expand = function(args)
+            vim.snippet.expand(args.body)
+        end,
+    },
+    preselect = 'item',
+    completion = {
+        completeopt = 'menu,menuone,noinsert'
+    },
+})
