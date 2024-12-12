@@ -46,6 +46,13 @@ require('mason-lspconfig').setup({
         function(server_name)
             require('lspconfig')[server_name].setup({})
         end,
+        ["omnisharp"] = function ()
+            require('lspconfig')["omnisharp"].setup({
+                handlers = {
+                    ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
+                }
+            })
+        end
     },
 })
 require'lspconfig'.dartls.setup{
