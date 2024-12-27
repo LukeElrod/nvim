@@ -34,6 +34,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
     vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
     vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+    vim.keymap.set("n", "g]", vim.diagnostic.goto_next, opts)
+    vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, opts)
   end,
 })
 
@@ -44,6 +46,13 @@ require('mason-lspconfig').setup({
         function(server_name)
             require('lspconfig')[server_name].setup({})
         end,
+        ["omnisharp"] = function ()
+            require('lspconfig')["omnisharp"].setup({
+                handlers = {
+                    ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
+                }
+            })
+        end
     },
 })
 require'lspconfig'.dartls.setup{
