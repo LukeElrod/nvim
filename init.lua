@@ -29,4 +29,4 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 
 --colorscheme
-vim.cmd.colorscheme("rose-pine")
+vim.cmd.colorscheme("cyberdream")
