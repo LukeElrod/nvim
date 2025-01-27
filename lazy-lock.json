@@ -6,6 +6,7 @@
   "mason.nvim": { "branch": "main", "commit": "e2f7f9044ec30067bc11800a9e266664b88cda22" },
   "nvim-cmp": { "branch": "main", "commit": "be7bd4c5f860c79da97af3a26d489af50babfd4b" },
   "nvim-lspconfig": { "branch": "master", "commit": "c646154d6e4db9b2979eeb517d0b817ad00c9c47" },
+  "nvim-tree.lua": { "branch": "master", "commit": "d05881f65f0a653db8d830ccc4d2e07d6a720628" },
   "nvim-treesitter": { "branch": "master", "commit": "fcd2a5fea91deac818f26a6412a624798af45033" },
   "omnisharp-extended-lsp.nvim": { "branch": "main", "commit": "4916fa12e5b28d21a1f031f0bdd10aa15a75d85d" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
