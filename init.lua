@@ -30,3 +30,5 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 
 --colorscheme
 vim.cmd.colorscheme("cyberdream")
+
+vim.opt.clipboard = 'unnamedplus'
