@@ -19,8 +19,6 @@ vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 -- Move line down (v)
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
--- esc to exit terminal insert mode
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 --tab to toggle nvim tree
 vim.keymap.set("n", "<Tab>", ":NvimTreeToggle <CR>")
 
