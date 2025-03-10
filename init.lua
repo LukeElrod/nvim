@@ -22,6 +22,10 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 --tab to toggle nvim tree
 vim.keymap.set("n", "<Tab>", ":NvimTreeToggle <CR>")
 
+--saving
+vim.keymap.set("n", "<F5>", ":w <CR>")
+vim.keymap.set("n", "<F6>", ":wa <CR>")
+
 --telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
