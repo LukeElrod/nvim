@@ -25,6 +25,7 @@ vim.keymap.set("n", "<Tab>", ":NvimTreeToggle <CR>")
 --saving
 vim.keymap.set("n", "<F5>", ":w <CR>")
 vim.keymap.set("n", "<F6>", ":wa <CR>")
+vim.keymap.set("n", "<BS>", ":q <CR>")
 
 --telescope
 local builtin = require('telescope.builtin')
