@@ -1,1 +1,1 @@
-**Use a translucent acrylic terminal background or you're doing it wrong.**
+**Created and tested on Alacritty with translucent background**
