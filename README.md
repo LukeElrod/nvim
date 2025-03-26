@@ -1,5 +1,3 @@
-**Created and tested on Alacritty with translucent background**
-
 ## Alacritty Config:
 ```toml
 [window]
