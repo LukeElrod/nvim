@@ -36,10 +36,15 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 --tab to toggle nvim tree
 vim.keymap.set("n", "<Tab>", ":NvimTreeToggle <CR>")
 
---saving
+--saving&quitting
 vim.keymap.set("n", "<F5>", ":w <CR>")
 vim.keymap.set("n", "<F6>", ":wa <CR>")
-vim.keymap.set("n", "<BS>", ":q <CR>")
+vim.keymap.set("n", "<BS>", "<Cmd>BufferClose<CR>")
+vim.keymap.set("n", "<C-BS>", "<Cmd>qa<CR>")
+
+--barbar
+vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>')
+vim.keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>')
 
 --telescope
 local builtin = require('telescope.builtin')
