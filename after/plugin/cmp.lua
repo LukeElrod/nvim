@@ -62,33 +62,4 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig.
 require('cmp_nvim_lsp').default_capabilities()
 
---language servers
-require('mason').setup({})
-require('mason-lspconfig').setup({
-    handlers = {
-        function(server_name)
-            require('lspconfig')[server_name].setup({})
-        end,
-        ["omnisharp"] = function()
-            require('lspconfig')["omnisharp"].setup({
-                handlers = {
-                    ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
-                }
-            })
-        end
-    },
-})
 
-require 'lspconfig'.dartls.setup {
-    on_attach = function(client)
-        vim.opt.tabstop = 2
-        vim.opt.shiftwidth = 2
-        vim.opt.softtabstop = 2
-    end,
-    settings = {
-        dart = {
-            lineLength = 160,
-            showTodos = true
-        }
-    }
-}

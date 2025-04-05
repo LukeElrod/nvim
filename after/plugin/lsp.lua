@@ -27,3 +27,36 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set("n", "g[", vim.diagnostic.goto_prev, opts)
     end,
 })
+
+--language servers
+require('mason').setup({})
+require('mason-lspconfig').setup({
+    handlers = {
+        function(server_name)
+            require('lspconfig')[server_name].setup({})
+        end,
+        ["omnisharp"] = function()
+            require('lspconfig')["omnisharp"].setup({
+                handlers = {
+                    ["textDocument/definition"] = require('omnisharp_extended').definition_handler,
+                }
+            })
+        end
+    },
+})
+
+require 'lspconfig'.dartls.setup {
+    on_attach = function(client)
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2
+        vim.opt.softtabstop = 2
+    end,
+    settings = {
+        dart = {
+            lineLength = 160,
+            showTodos = true
+        }
+    }
+}
+
+require'lspconfig'.gdscript.setup{}
