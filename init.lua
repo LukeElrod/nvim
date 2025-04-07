@@ -25,14 +25,15 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.wo.number = true
 
--- Move line up (n)
-vim.keymap.set("n", "<A-j>", "<Cmd>m .+1<CR>==")
--- Move line down (n)
-vim.keymap.set("n", "<A-k>", "<Cmd>m .-2<CR>==")
--- Move line up (v)
-vim.keymap.set("v", "<A-j>", "<Cmd>m '>+1<CR>gv=gv")
--- Move line down (v)
-vim.keymap.set("v", "<A-k>", "<Cmd>m '<-2<CR>gv=gv")
+-- Move line up in normal mode
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
+-- Move line down in normal mode
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
+
+-- Move selection up in visual mode
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
+-- Move selection down in visual mode
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 --nvim-tree
 vim.keymap.set("n", "<Tab>", "<Cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<C-Tab>", "<Cmd>NvimTreeFindFile<CR>")
