@@ -38,6 +38,9 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("n", "<Tab>", "<Cmd>NvimTreeFocus<CR>")
 vim.keymap.set("n", "<C-Tab>", "<Cmd>NvimTreeFindFile<CR>")
 
+-- esc to exit terminal insert mode
+vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+
 --saving&quitting
 vim.keymap.set("n", "<F5>", "<Cmd>w<CR>")
 vim.keymap.set("n", "<F6>", "<Cmd>wa<CR>")
