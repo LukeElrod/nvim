@@ -41,13 +41,14 @@ vim.keymap.set("n", "<C-Tab>", "<Cmd>NvimTreeFindFile<CR>")
 --unhighlight
 vim.keymap.set("n", "<C-h>", ":noh<CR>", { silent = true })
 
--- esc to exit terminal insert mode
+--terminal
+vim.keymap.set("n", [[<C-\>]], "<Cmd>terminal<CR>i")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 --saving&quitting
 vim.keymap.set("n", "<F5>", "<Cmd>w<CR>")
 vim.keymap.set("n", "<F6>", "<Cmd>wa<CR>")
-vim.keymap.set("n", "<BS>", "<Cmd>BufferClose<CR>")
+vim.keymap.set("n", "<BS>", "<Cmd>confirm BufferClose<CR>")
 vim.keymap.set("n", "<C-BS>", "<Cmd>qa<CR>")
 
 --barbar
