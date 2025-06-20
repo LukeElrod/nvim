@@ -6,7 +6,7 @@ return {
         lazy = false,
         main = "nvim-treesitter.configs",
         opts = { -- A list of parser names, or "all" (the listed parsers MUST always be installed)
-            ensure_installed = { "c", "cpp", "c_sharp", "java", "javascript", "dart", "python", "html", "css", "kotlin", "bash", "cmake", "make", "php", "lua", "rust", "json", "go", "markdown" },
+            ensure_installed = { "c", "cpp", "c_sharp", "java", "javascript", "dart", "python", "html", "css", "kotlin", "bash", "cmake", "make", "php", "lua", "rust", "json", "go", "markdown", "csv", "diff", "dockerfile", "gitignore", "typescript", "yaml" },
 
             -- Install parsers synchronously (only applied to `ensure_installed`)
             sync_install = false,
