@@ -14,6 +14,14 @@ local function nvim_tree_attach(bufnr)
     vim.keymap.set('n', '<BS>', api.tree.close, opts('Close'))
 end
 
+
+local function close_window()
+    local state = require('barbar.state')
+    if #state.buffers > 1 then
+        vim.cmd("confirm BufferClose")
+    end
+end
+
 --disable netrrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -48,7 +56,7 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 --saving&quitting
 vim.keymap.set("n", "<F5>", "<Cmd>w<CR>")
 vim.keymap.set("n", "<F6>", "<Cmd>wa<CR>")
-vim.keymap.set("n", "<BS>", "<Cmd>confirm BufferClose<CR>")
+vim.keymap.set("n", "<BS>", close_window)
 vim.keymap.set("n", "<C-BS>", "<Cmd>qa<CR>")
 
 --barbar
