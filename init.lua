@@ -25,7 +25,12 @@ end
 --disable netrrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-require("nvim-tree").setup({ on_attach = nvim_tree_attach })
+require("nvim-tree").setup({
+    on_attach = nvim_tree_attach,
+    filters = {
+        enable = false
+    },
+})
 
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
