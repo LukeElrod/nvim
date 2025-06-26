@@ -1,1 +1,1 @@
-### See dotfiles for alacritty config
+### See dotfiles for kitty config
