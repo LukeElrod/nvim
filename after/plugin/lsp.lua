@@ -1,16 +1,13 @@
--- This is where you enable features that only work
--- if there is a language server active in the file
 vim.api.nvim_create_autocmd('LspAttach', {
-    desc = 'LSP actions',
     callback = function(event)
-        local id = vim.tbl_get(event, 'data', 'client_id')
-        local client = id and vim.lsp.get_client_by_id(id)
+        local client = vim.lsp.get_client_by_id(event.data.client_id)
         if client == nil then
             return
         end
 
         -- Disable semantic highlights
         client.server_capabilities.semanticTokensProvider = nil
+
         local opts = { buffer = event.buf }
 
         vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
@@ -28,37 +25,28 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
---language servers
-require('mason').setup({})
-require('mason-lspconfig').setup({
+vim.lsp.config('csharp_ls', {
     handlers = {
-        function(server_name)
-            require('lspconfig')[server_name].setup({})
-        end,
-        ["csharp_ls"] = function()
-            require('lspconfig')["csharp_ls"].setup({
-                handlers = {
-                    ["textDocument/definition"] = require('csharpls_extended').handler,
-                    ["textDocument/typeDefinition"] = require('csharpls_extended').handler,
-                }
-            })
-            require("csharpls_extended").buf_read_cmd_bind()
-        end
+        ["textDocument/definition"] = require('csharpls_extended').handler,
+        ["textDocument/typeDefinition"] = require('csharpls_extended').handler,
     },
+    on_attach = function (client)
+        require("csharpls_extended").buf_read_cmd_bind()
+    end
 })
 
-require 'lspconfig'.dartls.setup {
+vim.lsp.config('dartls', {
     on_attach = function(client)
         vim.opt.tabstop = 2
         vim.opt.shiftwidth = 2
         vim.opt.softtabstop = 2
     end,
-    settings = {
-        dart = {
-            lineLength = 160,
-            showTodos = true
-        }
+    settings = {},
+    dart = {
+        lineLength = 160,
+        showTodos = true
     }
-}
+})
 
-require 'lspconfig'.gdscript.setup {}
+vim.lsp.enable('dartls')
+vim.lsp.enable('gdscript')
