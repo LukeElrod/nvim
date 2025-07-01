@@ -30,7 +30,7 @@ vim.lsp.config('csharp_ls', {
         ["textDocument/definition"] = require('csharpls_extended').handler,
         ["textDocument/typeDefinition"] = require('csharpls_extended').handler,
     },
-    on_attach = function (client)
+    on_attach = function(client)
         require("csharpls_extended").buf_read_cmd_bind()
     end
 })
@@ -41,10 +41,11 @@ vim.lsp.config('dartls', {
         vim.opt.shiftwidth = 2
         vim.opt.softtabstop = 2
     end,
-    settings = {},
-    dart = {
-        lineLength = 160,
-        showTodos = true
+    settings = {
+        dart = {
+            lineLength = 160,
+            showTodos = true
+        }
     }
 })
 
