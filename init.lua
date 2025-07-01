@@ -36,7 +36,7 @@ vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
-vim.wo.number = true
+vim.wo.relativenumber = true
 
 -- Move line up in normal mode
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
