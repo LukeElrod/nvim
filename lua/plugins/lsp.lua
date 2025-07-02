@@ -12,7 +12,17 @@ return {
             }
         }
     },
-    { 'williamboman/mason-lspconfig.nvim', opts = {} },
+    {
+        'williamboman/mason-lspconfig.nvim',
+        opts = {
+            automatic_enable = {
+                exclude = {
+                    --needs external plugin
+                    'jdtls'
+                }
+            }
+        }
+    },
     { 'Decodetalkers/csharpls-extended-lsp.nvim' },
     {
         "folke/lazydev.nvim",
