@@ -32,10 +32,10 @@ require("nvim-tree").setup({
     },
 })
 
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
 vim.wo.relativenumber = true
 
 -- Move line up in normal mode
@@ -74,3 +74,6 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
 vim.opt.clipboard = 'unnamedplus'
+
+local treesitter = require('treesitter.treesitter_setup')
+treesitter.setup()
