@@ -23,7 +23,6 @@ return {
             }
         }
     },
-    { 'Decodetalkers/csharpls-extended-lsp.nvim' },
     {
         "folke/lazydev.nvim",
         ft = "lua", -- only load on lua files
@@ -34,5 +33,7 @@ return {
                 { path = "${3rd}/luv/library", words = { "vim%.uv" } },
             },
         },
-    }
+    },
+    { 'Decodetalkers/csharpls-extended-lsp.nvim' },
+    { 'mfussenegger/nvim-jdtls' }
 }
