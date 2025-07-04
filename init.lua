@@ -48,25 +48,25 @@ vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 -- Move selection down in visual mode
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 --nvim-tree
-vim.keymap.set("n", "<Tab>", "<Cmd>NvimTreeFocus<CR>")
-vim.keymap.set("n", "<C-Tab>", "<Cmd>NvimTreeFindFile<CR>")
+vim.keymap.set("n", "<Tab>", ":NvimTreeFocus<CR>")
+vim.keymap.set("n", "<S-Tab>", ":NvimTreeFindFile<CR>")
 
 --unhighlight
 vim.keymap.set("n", "<C-h>", ":noh<CR>", { silent = true })
 
 --terminal
-vim.keymap.set("n", [[<C-\>]], "<Cmd>terminal<CR>i")
+vim.keymap.set("n", [[<C-\>]], ":terminal<CR>i")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 --saving&quitting
-vim.keymap.set("n", "<F5>", "<Cmd>w<CR>")
-vim.keymap.set("n", "<F6>", "<Cmd>wa<CR>")
+vim.keymap.set("n", "<F5>", ":w<CR>")
+vim.keymap.set("n", "<F6>", ":wa<CR>")
 vim.keymap.set("n", "<BS>", close_window)
-vim.keymap.set("n", "<C-BS>", "<Cmd>qa<CR>")
+vim.keymap.set("n", "<C-BS>", ":qa<CR>")
 
 --barbar
-vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>')
-vim.keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>')
+vim.keymap.set('n', '<A-,>', ':BufferPrevious<CR>')
+vim.keymap.set('n', '<A-.>', ':BufferNext<CR>')
 
 --telescope
 local builtin = require('telescope.builtin')
