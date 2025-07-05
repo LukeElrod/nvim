@@ -22,6 +22,13 @@ local function close_window()
     end
 end
 
+--cleanup lsp
+vim.api.nvim_create_autocmd('VimLeavePre', {
+    callback = function(args)
+        vim.lsp.stop_client(vim.lsp.get_clients())
+    end
+})
+
 --disable netrrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
