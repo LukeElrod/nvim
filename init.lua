@@ -35,14 +35,14 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("n", "<C-h>", ":noh<CR>", { silent = true })
 
 --terminal
-vim.keymap.set("n", [[<C-\>]], ":terminal<CR>i")
+vim.keymap.set("n", [[<A-\>]], ":terminal<CR>i")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 --saving&quitting
 vim.keymap.set("n", "<F5>", ":w<CR>")
 vim.keymap.set("n", "<F6>", ":wa<CR>")
 vim.keymap.set("n", "<BS>", close_window)
-vim.keymap.set("n", "<C-BS>", ":qa<CR>")
+vim.keymap.set("n", "<A-BS>", ":qa<CR>")
 
 --barbar
 vim.keymap.set('n', '<A-,>', ':BufferPrevious<CR>')
