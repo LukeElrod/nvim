@@ -23,9 +23,18 @@ return {
             }
         }
     },
+    { 'Decodetalkers/csharpls-extended-lsp.nvim' },
+    { 'mfussenegger/nvim-jdtls' },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' },
+        opts = {
+            file_types = { 'markdown', 'copilot-chat' },
+        },
+    },
     {
         "folke/lazydev.nvim",
-        ft = "lua", -- only load on lua files
+        ft = "lua",
         opts = {
             library = {
                 -- See the configuration section for more details
@@ -34,6 +43,10 @@ return {
             },
         },
     },
-    { 'Decodetalkers/csharpls-extended-lsp.nvim' },
-    { 'mfussenegger/nvim-jdtls' }
+    {
+        'Tyrannican/warcraft-api.nvim',
+        ft = "lua",
+        opts = {},
+        dependencies = { 'nvim-lua/plenary.nvim' }
+    }
 }

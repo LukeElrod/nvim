@@ -48,6 +48,9 @@ vim.keymap.set("n", "<A-BS>", ":qa<CR>")
 vim.keymap.set('n', '<A-,>', ':BufferPrevious<CR>')
 vim.keymap.set('n', '<A-.>', ':BufferNext<CR>')
 
+--copilot
+vim.keymap.set("n", "~", ":CopilotChatToggle<CR>")
+
 --telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})

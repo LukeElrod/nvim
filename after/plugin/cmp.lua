@@ -59,5 +59,5 @@ cmp.setup.cmdline(':', {
     matching = { disallow_symbol_nonprefix_matching = false }
 })
 
--- Set up lspconfig.
+-- Set up lsp.
 require('cmp_nvim_lsp').default_capabilities()
