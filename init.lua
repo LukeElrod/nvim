@@ -49,7 +49,13 @@ vim.keymap.set('n', '<A-,>', ':BufferPrevious<CR>')
 vim.keymap.set('n', '<A-.>', ':BufferNext<CR>')
 
 --copilot
-vim.keymap.set("n", "~", ":CopilotChatToggle<CR>")
+vim.keymap.set({"n", "v"}, "~", ":CopilotChat<CR>")
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = "copilot-chat",
+    callback = function()
+        vim.cmd("wincmd r")
+    end,
+})
 
 --telescope
 local builtin = require('telescope.builtin')
