@@ -2,14 +2,14 @@ local M = {}
 
 function M:setup()
     local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
-    local workspace_dir = "/home/raz/development/jdtls_data/" .. project_name
+    local workspace_dir = [[C:\Users\ajaxx\development]] .. project_name
     local config = {
         -- The command that starts the language server
         -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
         cmd = {
 
             -- 💀
-            "/usr/lib/jvm/java-21-openjdk/bin/java", -- or '/path/to/java17_or_newer/bin/java'
+            "java", -- or '/path/to/java17_or_newer/bin/java'
             -- depends on if `java` is in your $PATH env variable and if it points to the right version.
 
             "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -26,14 +26,14 @@ function M:setup()
 
             -- 💀
             "-jar",
-            "/home/raz/.local/share/nvim/mason/packages/jdtls/plugins/org.eclipse.equinox.launcher_1.7.0.v20250331-1702.jar",
+            [[C:\Users\ajaxx\AppData\Local\nvim-data\mason\packages\jdtls\plugins\org.eclipse.equinox.launcher_1.7.0.v20250519-0528.jar]],
             -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                                       ^^^^^^^^^^^^^^
             -- Must point to the                                                     Change this to
             -- eclipse.jdt.ls installation                                           the actual version
 
             -- 💀
             "-configuration",
-            "/home/raz/.local/share/nvim/mason/packages/jdtls/config_linux",
+            [[C:\Users\ajaxx\AppData\Local\nvim-data\mason\packages\jdtls\config_win]],
             -- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^        ^^^^^^
             -- Must point to the                      Change to one of `linux`, `win` or `mac`
             -- eclipse.jdt.ls installation            Depending on your system.
