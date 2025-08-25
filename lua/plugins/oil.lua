@@ -7,4 +7,5 @@ return {
         }
     },
     lazy = false,
+    priority = 900,
 }
