@@ -9,6 +9,10 @@ return {
             separator = '---',
             error_header = '> [!ERROR] Error',
             mappings = {
+                complete = {
+                    --still use tab for copilot chat, this is just so it doesn't conflict with copilot.vim
+                    insert = '<S-Tab>',
+                },
                 show_help = {
                     normal = 'g?',
                 }
