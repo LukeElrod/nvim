@@ -34,12 +34,25 @@ vim.lsp.config('csharp_ls', {
 })
 
 vim.lsp.config('dartls', {
+    on_attach = function(client)
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2
+        vim.opt.softtabstop = 2
+    end,
     settings = {
         dart = {
             lineLength = 160,
             showTodos = true
         }
     }
+})
+
+vim.lsp.config('ts_ls', {
+    on_attach = function(client)
+        vim.opt.tabstop = 2
+        vim.opt.shiftwidth = 2
+        vim.opt.softtabstop = 2
+    end
 })
 
 vim.lsp.enable('dartls')
