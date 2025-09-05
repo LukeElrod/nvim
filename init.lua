@@ -47,6 +47,9 @@ vim.keymap.set("n", "<A-BS>", ":qa<CR>")
 --barbar
 vim.keymap.set('n', '<A-,>', ':BufferPrevious<CR>')
 vim.keymap.set('n', '<A-.>', ':BufferNext<CR>')
+vim.cmd('highlight BufferTabpageFill NONE')
+vim.cmd('highlight default link BufferTabpageFill Normal')
+vim.cmd('highlight BufferInactiveSign NONE')
 
 --copilot
 vim.keymap.set({"n", "v"}, "~", ":CopilotChat<CR>")
