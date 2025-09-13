@@ -1,9 +1,28 @@
 require("config.lazy")
 
-local function close_window()
-    local state = require('barbar.state')
-    if #state.buffers > 1 then
-        vim.cmd("confirm BufferClose")
+vim.opt.termguicolors = true
+vim.opt.clipboard = 'unnamedplus'
+
+local function close_buffer()
+    local bufferline = require("bufferline")
+    local current_buf = vim.api.nvim_get_current_buf()
+    local buffers = bufferline.get_elements().elements
+
+    local is_tab = false
+    for _, buf in ipairs(buffers) do
+        if buf.id == current_buf then
+            is_tab = true
+            break
+        end
+    end
+
+    if not is_tab then
+        vim.cmd("bdelete")
+        return
+    end
+
+    if #buffers > 1 then
+        vim.cmd("bdelete")
     end
 end
 
@@ -41,15 +60,12 @@ vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 --saving&quitting
 vim.keymap.set("n", "<F5>", ":w<CR>")
 vim.keymap.set("n", "<F6>", ":wa<CR>")
-vim.keymap.set("n", "<BS>", close_window)
+vim.keymap.set("n", "<BS>", close_buffer)
 vim.keymap.set("n", "<A-BS>", ":qa<CR>")
 
---barbar
-vim.keymap.set('n', '<A-,>', ':BufferPrevious<CR>')
-vim.keymap.set('n', '<A-.>', ':BufferNext<CR>')
-vim.cmd('highlight BufferTabpageFill NONE')
-vim.cmd('highlight default link BufferTabpageFill Normal')
-vim.cmd('highlight BufferInactiveSign NONE')
+--bufferline
+vim.keymap.set('n', '<A-,>', ':BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '<A-.>', ':BufferLineCycleNext<CR>')
 
 --copilot
 vim.keymap.set({"n", "v"}, "~", ":CopilotChat<CR>")
@@ -65,7 +81,6 @@ local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 
-vim.opt.clipboard = 'unnamedplus'
 
 local treesitter = require('treesitter.treesitter_setup')
 treesitter.setup()
