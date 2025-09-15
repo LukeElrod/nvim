@@ -22,9 +22,18 @@ local function close_buffer()
     end
 
     if #buffers > 1 then
-        vim.cmd("bdelete")
+        vim.cmd("confirm bdelete")
     end
 end
+
+--help files open in full window and are listed in buffer elements
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "help",
+    callback = function()
+        vim.cmd("only")
+        vim.bo.buflisted = true
+    end
+})
 
 --disable netrrw
 vim.g.loaded_netrw = 1
@@ -36,8 +45,8 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.wo.relativenumber = true
 
-vim.keymap.set("n", "<Tab>", function ()
-   require("oil").open()
+vim.keymap.set("n", "<Tab>", function()
+    require("oil").open()
 end)
 
 -- Move line up in normal mode
@@ -68,7 +77,7 @@ vim.keymap.set('n', '<A-,>', ':BufferLineCyclePrev<CR>')
 vim.keymap.set('n', '<A-.>', ':BufferLineCycleNext<CR>')
 
 --copilot
-vim.keymap.set({"n", "v"}, "~", ":CopilotChat<CR>")
+vim.keymap.set({ "n", "v" }, "~", ":CopilotChat<CR>")
 vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = "copilot-chat",
     callback = function()

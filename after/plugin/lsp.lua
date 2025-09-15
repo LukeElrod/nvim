@@ -15,6 +15,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
         vim.keymap.set('n', 'gi', builtin.lsp_implementations, opts)
         vim.keymap.set('n', 'gr', builtin.lsp_references, opts)
+        vim.keymap.set('n', 'gs', builtin.lsp_workspace_symbols, opts)
         vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, opts)
         vim.keymap.set({ 'n', 'x' }, '=', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
         vim.keymap.set('n', '<F4>', vim.lsp.buf.code_action, opts)
