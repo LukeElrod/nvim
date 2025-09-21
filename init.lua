@@ -77,6 +77,7 @@ vim.keymap.set('n', '<A-,>', ':BufferLineCyclePrev<CR>')
 vim.keymap.set('n', '<A-.>', ':BufferLineCycleNext<CR>')
 
 --copilot
+vim.keymap.set('i', '<C-e>', '<Plug>(copilot-dismiss)')
 vim.keymap.set({ "n", "v" }, "~", ":CopilotChat<CR>")
 vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = "copilot-chat",
