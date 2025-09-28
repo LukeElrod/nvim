@@ -45,52 +45,33 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.wo.relativenumber = true
 
+--KEYMAPS
+
 vim.keymap.set("n", "<Tab>", function()
     require("oil").open()
 end)
 
-if vim.fn.has("mac") == 1 then
-    vim.keymap.set("n", "<C-j>", ":m .+1<CR>==", { silent = true })
-    vim.keymap.set("n", "<C-k>", ":m .-2<CR>==", { silent = true })
-    vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true })
-    vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true })
-else
-    -- Move line up in normal mode
-    vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
-    -- Move line down in normal mode
-    vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
-
-    -- Move selection up in visual mode
-    vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
-    -- Move selection down in visual mode
-    vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
-end
+vim.keymap.set("n", "<C-j>", ":m .+1<CR>==", { silent = true })
+vim.keymap.set("n", "<C-k>", ":m .-2<CR>==", { silent = true })
+vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true })
+vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true })
 
 --unhighlight
 vim.keymap.set("n", "<leader>h", ":noh<CR>", { silent = true })
 
 --terminal
-if vim.fn.has("mac") == 1 then
-    vim.keymap.set("n", [[<C-\>]], ":terminal<CR>i")
-else
-    vim.keymap.set("n", [[<A-\>]], ":terminal<CR>i")
-end
+vim.keymap.set("n", [[<C-\>]], ":terminal<CR>i")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 --saving&quitting
 vim.keymap.set("n", "<F5>", ":w<CR>")
 vim.keymap.set("n", "<F6>", ":wa<CR>")
 vim.keymap.set("n", "<BS>", close_buffer)
-vim.keymap.set("n", "<A-BS>", ":qa<CR>")
+vim.keymap.set("n", "<C-BS>", ":qa<CR>")
 
 --bufferline
-if vim.fn.has("mac") == 1 then
-    vim.keymap.set('n', '<C-h>', ':BufferLineCyclePrev<CR>')
-    vim.keymap.set('n', '<C-l>', ':BufferLineCycleNext<CR>')
-else
-    vim.keymap.set('n', '<A-h>', ':BufferLineCyclePrev<CR>')
-    vim.keymap.set('n', '<A-l>', ':BufferLineCycleNext<CR>')
-end
+vim.keymap.set('n', '<C-h>', ':BufferLineCyclePrev<CR>')
+vim.keymap.set('n', '<C-l>', ':BufferLineCycleNext<CR>')
 
 --copilot
 vim.keymap.set('i', '<C-e>', '<Plug>(copilot-dismiss)')
