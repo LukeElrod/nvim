@@ -24,6 +24,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
     end,
 })
 
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                disable = {
+                    "undefined-global",
+                    "undefined-field"
+                }
+            },
+        }
+    }
+})
+
 vim.lsp.config('csharp_ls', {
     handlers = {
         ["textDocument/definition"] = require('csharpls_extended').handler,
