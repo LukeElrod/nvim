@@ -17,9 +17,6 @@ return {
                     normal = 'g?',
                 }
             },
-            window = {
-                width = 0.4,
-            },
         },
     },
     { "github/copilot.vim" }
