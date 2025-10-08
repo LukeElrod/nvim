@@ -3,29 +3,6 @@ require("config.lazy")
 vim.opt.termguicolors = true
 vim.opt.clipboard = 'unnamedplus'
 
-local function close_buffer()
-    local bufferline = require("bufferline")
-    local current_buf = vim.api.nvim_get_current_buf()
-    local buffers = bufferline.get_elements().elements
-
-    local is_tab = false
-    for _, buf in ipairs(buffers) do
-        if buf.id == current_buf then
-            is_tab = true
-            break
-        end
-    end
-
-    if not is_tab then
-        vim.cmd("bdelete")
-        return
-    end
-
-    if #buffers > 1 then
-        vim.cmd("confirm bdelete")
-    end
-end
-
 --help files open in full window and are listed in buffer elements
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "help",
@@ -46,15 +23,14 @@ vim.o.expandtab = true
 vim.wo.relativenumber = true
 
 --KEYMAPS
-
 vim.keymap.set("n", "<Tab>", function()
     require("oil").open()
 end)
 
-vim.keymap.set("n", "<C-j>", ":m .+1<CR>==", { silent = true })
-vim.keymap.set("n", "<C-k>", ":m .-2<CR>==", { silent = true })
-vim.keymap.set("v", "<C-j>", ":m '>+1<CR>gv=gv", { silent = true })
-vim.keymap.set("v", "<C-k>", ":m '<-2<CR>gv=gv", { silent = true })
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 
 --unhighlight
 vim.keymap.set("n", "<leader>h", ":noh<CR>", { silent = true })
@@ -64,14 +40,11 @@ vim.keymap.set("n", [[<C-\>]], ":terminal<CR>i")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 --saving&quitting
-vim.keymap.set("n", "<F5>", ":w<CR>")
+vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("n", "<F6>", ":wa<CR>")
-vim.keymap.set("n", "<BS>", close_buffer)
+vim.keymap.set("n", "<BS>", ":confirm bdelete<CR>")
 vim.keymap.set("n", "<C-BS>", ":qa<CR>")
 
---bufferline
-vim.keymap.set('n', '<C-h>', ':BufferLineCyclePrev<CR>')
-vim.keymap.set('n', '<C-l>', ':BufferLineCycleNext<CR>')
 
 --copilot
 vim.keymap.set('i', '<C-e>', '<Plug>(copilot-dismiss)')
@@ -85,9 +58,24 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
 
 --telescope
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>f', builtin.find_files, {})
+vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>b', builtin.buffers, {})
 
+--harpoon
+local harpoon = require("harpoon")
+harpoon:setup()
+
+vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
+vim.keymap.set("n", "<leader>e", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+
+vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
+vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
+vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
+vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
+
+vim.keymap.set("n", "<C-,>", function() harpoon:list():prev() end)
+vim.keymap.set("n", "<C-.>", function() harpoon:list():next() end)
 
 local treesitter = require('treesitter.treesitter_setup')
 treesitter.setup()
