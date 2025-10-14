@@ -9,7 +9,7 @@ return {
         keymaps = {
             ["g?"] = { "actions.show_help", mode = "n" },
             ["<CR>"] = "actions.select",
-            ["<C-h>"] = { "actions.select", opts = { horizontal = true } },
+            ["<C-g>"] = { "actions.select", opts = { horizontal = true } },
             ["<C-v>"] = { "actions.select", opts = { vertical = true } },
             ["<C-t>"] = { "actions.select", opts = { tab = true } },
             ["<C-p>"] = "actions.preview",
