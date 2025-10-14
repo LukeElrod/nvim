@@ -36,12 +36,11 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("n", "<leader>h", ":noh<CR>", { silent = true })
 
 --terminal
-vim.keymap.set("n", [[<C-\>]], ":terminal<CR>i")
 vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
 
 --saving&quitting
 vim.keymap.set("n", "<C-s>", ":w<CR>")
-vim.keymap.set("n", "<F6>", ":wa<CR>")
+vim.keymap.set("n", "<F5>", ":wa<CR>")
 vim.keymap.set("n", "<BS>", ":confirm bdelete<CR>")
 vim.keymap.set("n", "<C-BS>", ":qa<CR>")
 
