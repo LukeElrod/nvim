@@ -12,7 +12,8 @@ return {
                 "--line-number",
                 "--column",
                 "--smart-case",
-                "--no-ignore"
+                "--no-ignore",
+                "--fixed-strings"
             }
         },
         pickers = {
