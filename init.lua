@@ -44,9 +44,7 @@ vim.keymap.set("n", "<F5>", ":wa<CR>")
 vim.keymap.set("n", "<BS>", ":confirm bdelete<CR>")
 vim.keymap.set("n", "<C-BS>", ":qa<CR>")
 
-
 --copilot
-vim.keymap.set('i', '<C-e>', '<Plug>(copilot-dismiss)')
 vim.keymap.set({ "n", "v" }, "~", ":CopilotChat<CR>")
 vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = "copilot-chat",
