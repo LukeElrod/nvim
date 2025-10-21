@@ -7,7 +7,7 @@ return {
         },
         sections = {
             lualine_c = { { 'filename', path = 1 } },
-            lualine_y = { { 'lsp_status', ignore_lsp = { 'GitHub Copilot' } } }
+            lualine_y = { { 'lsp_status', ignore_lsp = { 'GitHub Copilot', 'copilot' } } }
         },
         inactive_sections = {
             lualine_c = { { 'filename', path = 1 } }
