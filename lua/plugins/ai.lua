@@ -28,7 +28,7 @@ return {
                 keymap = {
                     accept = false,
                     accept_word = false,
-                    accept_line = "<S-Tab>",
+                    accept_line = false,
                     prev = "<A-[>",
                     next = "<A-]>",
                     dismiss = "<C-e>",

@@ -45,6 +45,17 @@ vim.keymap.set("n", "<BS>", ":confirm bdelete<CR>")
 vim.keymap.set("n", "<C-BS>", ":qa<CR>")
 
 --copilot
+--this is necessary to still allow default tab behavior when copilot suggestion is not visible
+vim.keymap.set("i", "<Tab>", function()
+        local copilot = require("copilot.suggestion")
+        if copilot.is_visible() then
+            copilot.accept_line()
+        else
+            return "\t"
+        end
+    end,
+    { expr = true }
+)
 vim.keymap.set({ "n", "v" }, "~", ":CopilotChat<CR>")
 vim.api.nvim_create_autocmd("BufWinEnter", {
     pattern = "copilot-chat",
