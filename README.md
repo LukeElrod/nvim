@@ -2,9 +2,8 @@
 
 ## Requirements
     - Latest Neovim
-    - git
+    - tree sitter cli
     - C++ compiler (clang preferred)
-    - Node.js
     - ripgrep
 
 ### See dotfiles for kitty config
