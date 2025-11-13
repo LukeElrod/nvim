@@ -13,7 +13,6 @@ return {
                     normal = 'g?',
                 }
             },
-            model = 'claude-sonnet-4.5'
         },
     },
     {
