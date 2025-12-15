@@ -1,5 +1,8 @@
 return {
-    { 'neovim/nvim-lspconfig' },
+    {
+        'neovim/nvim-lspconfig',
+        dependencies = { 'saghen/blink.cmp' },
+    },
     {
         "mason-org/mason.nvim",
         opts = {
@@ -32,21 +35,4 @@ return {
             file_types = { 'markdown', 'copilot-chat' },
         },
     },
-    {
-        "folke/lazydev.nvim",
-        ft = "lua",
-        opts = {
-            library = {
-                -- See the configuration section for more details
-                -- Load luvit types when the `vim.uv` word is found
-                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-            },
-        },
-    },
-    {
-        'Tyrannican/warcraft-api.nvim',
-        ft = "lua",
-        opts = {},
-        dependencies = { 'nvim-lua/plenary.nvim' }
-    }
 }

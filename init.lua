@@ -12,7 +12,6 @@ vim.api.nvim_create_autocmd("FileType", {
     end
 })
 
---disable netrrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
@@ -20,7 +19,10 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
-vim.o.winborder = 'double'
+vim.o.autoindent = true
+vim.o.smartindent = true
+vim.o.signcolumn = 'yes'
+vim.o.wrap = false
 vim.wo.relativenumber = true
 
 --KEYMAPS
