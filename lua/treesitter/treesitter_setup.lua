@@ -9,8 +9,6 @@ function M:setup()
         pattern = { "c", "cpp", "c_sharp", "java", "javascript", "dart", "python", "html", "css", "kotlin", "bash", "cmake", "make", "php", "lua", "rust", "json", "go", "markdown", "csv", "diff", "dockerfile", "gitignore", "typescript", "yaml", "groovy" },
         callback = function()
             vim.treesitter.start()
-            vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-            vim.wo[0][0].foldmethod = 'expr'
         end,
     })
 end
