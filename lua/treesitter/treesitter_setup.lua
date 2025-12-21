@@ -8,12 +8,9 @@ function M:setup()
     vim.api.nvim_create_autocmd('FileType', {
         pattern = { "c", "cpp", "c_sharp", "java", "javascript", "dart", "python", "html", "css", "kotlin", "bash", "cmake", "make", "php", "lua", "rust", "json", "go", "markdown", "csv", "diff", "dockerfile", "gitignore", "typescript", "yaml", "groovy" },
         callback = function()
-            -- syntax highlighting, provided by Neovim
             vim.treesitter.start()
-            -- folds, provided by Neovim
-            vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-            -- indentation, provided by nvim-treesitter
-            vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+            vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+            vim.wo[0][0].foldmethod = 'expr'
         end,
     })
 end
