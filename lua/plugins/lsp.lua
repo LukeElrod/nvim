@@ -12,6 +12,10 @@ return {
                     package_pending = "➜",
                     package_uninstalled = "✗"
                 }
+            },
+            registries = {
+                "github:mason-org/mason-registry",
+                "github:Crashdummyy/mason-registry",
             }
         }
     },
@@ -23,7 +27,6 @@ return {
             "neovim/nvim-lspconfig",
         },
     },
-    { 'Decodetalkers/csharpls-extended-lsp.nvim' },
     { 'mfussenegger/nvim-jdtls' },
     {
         'MeanderingProgrammer/render-markdown.nvim',

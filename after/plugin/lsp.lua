@@ -37,16 +37,6 @@ vim.lsp.config('lua_ls', {
     }
 })
 
-vim.lsp.config('csharp_ls', {
-    handlers = {
-        ["textDocument/definition"] = require('csharpls_extended').handler,
-        ["textDocument/typeDefinition"] = require('csharpls_extended').handler,
-    },
-    on_attach = function(client)
-        require("csharpls_extended").buf_read_cmd_bind()
-    end
-})
-
 vim.lsp.config('dartls', {
     on_attach = function(client)
         vim.opt.tabstop = 2
@@ -165,5 +155,18 @@ vim.lsp.config('jdtls', {
 
 })
 
+vim.lsp.config('roslyn_ls', {
+    cmd = {
+        'dotnet',
+        vim.uv.os_homedir() .. '/.local/share/nvim/mason/packages/roslyn/libexec/Microsoft.CodeAnalysis.LanguageServer.dll',
+        '--logLevel',        -- this property is required by the server
+        'Information',
+        '--extensionLogDirectory', -- this property is required by the server
+        vim.fs.joinpath(vim.uv.os_tmpdir(), 'roslyn_ls/logs'),
+        '--stdio',
+    },
+})
+
 vim.lsp.enable('dartls')
 vim.lsp.enable('gdscript')
+vim.lsp.enable('roslyn_ls')
