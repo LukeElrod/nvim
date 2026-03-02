@@ -5,9 +5,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
             return
         end
 
-        -- Disable semantic highlights
-        client.server_capabilities.semanticTokensProvider = nil
-
         local opts = { buffer = event.buf }
         local builtin = require('telescope.builtin')
         vim.keymap.set('n', 'gh', vim.lsp.buf.hover, opts)
