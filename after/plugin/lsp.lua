@@ -162,6 +162,10 @@ vim.lsp.config('roslyn_ls', {
         vim.fs.joinpath(vim.uv.os_tmpdir(), 'roslyn_ls/logs'),
         '--stdio',
     },
+    cmd_env = {
+        -- Fixes LSP navigation in decompiled files for systems with symlinked TMPDIR (macOS)
+        TMPDIR = vim.fn.resolve(vim.env.TMPDIR)
+    }
 })
 
 vim.lsp.enable('dartls')
