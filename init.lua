@@ -1,15 +1,15 @@
 require("config.lazy")
 
 vim.opt.termguicolors = true
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard = "unnamedplus"
 
 --help files open in full window and are listed in buffer elements
 vim.api.nvim_create_autocmd("FileType", {
-    pattern = "help",
-    callback = function()
-        vim.cmd("only")
-        vim.bo.buflisted = true
-    end
+	pattern = "help",
+	callback = function()
+		vim.cmd("only")
+		vim.bo.buflisted = true
+	end,
 })
 
 vim.g.loaded_netrw = 1
@@ -21,14 +21,14 @@ vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.o.autoindent = true
 vim.o.smartindent = true
-vim.o.signcolumn = 'yes'
+vim.o.signcolumn = "yes"
 vim.o.foldenable = false
 vim.o.wrap = false
 vim.wo.relativenumber = true
 
 --KEYMAPS
 vim.keymap.set("n", "<Tab>", function()
-    require("oil").open()
+	require("oil").open()
 end)
 
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
@@ -51,43 +51,57 @@ vim.keymap.set("n", "<C-BS>", ":qa<CR>")
 --copilot
 --this is necessary to still allow default tab behavior when copilot suggestion is not visible
 vim.keymap.set("i", "<Tab>", function()
-        local copilot = require("copilot.suggestion")
-        if copilot.is_visible() then
-            copilot.accept_line()
-        else
-            return "\t"
-        end
-    end,
-    { expr = true }
-)
+	local copilot = require("copilot.suggestion")
+	if copilot.is_visible() then
+		copilot.accept_line()
+	else
+		return "\t"
+	end
+end, { expr = true })
 vim.keymap.set({ "n", "v" }, "`", ":CopilotChat<CR>")
 vim.api.nvim_create_autocmd("BufWinEnter", {
-    pattern = "copilot-chat",
-    callback = function()
-        vim.cmd("wincmd r")
-    end,
+	pattern = "copilot-chat",
+	callback = function()
+		vim.cmd("wincmd r")
+	end,
 })
 
 --telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>f', builtin.find_files, {})
-vim.keymap.set('n', '<leader>g', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>b', builtin.buffers, {})
+local builtin = require("telescope.builtin")
+vim.keymap.set("n", "<leader>f", builtin.find_files, {})
+vim.keymap.set("n", "<leader>g", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>b", builtin.buffers, {})
 
 --harpoon
 local harpoon = require("harpoon")
 harpoon:setup()
 
-vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
-vim.keymap.set("n", "<leader>e", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
+vim.keymap.set("n", "<leader>a", function()
+	harpoon:list():add()
+end)
+vim.keymap.set("n", "<leader>e", function()
+	harpoon.ui:toggle_quick_menu(harpoon:list())
+end)
 
-vim.keymap.set("n", "<C-h>", function() harpoon:list():select(1) end)
-vim.keymap.set("n", "<C-j>", function() harpoon:list():select(2) end)
-vim.keymap.set("n", "<C-k>", function() harpoon:list():select(3) end)
-vim.keymap.set("n", "<C-l>", function() harpoon:list():select(4) end)
+vim.keymap.set("n", "<C-h>", function()
+	harpoon:list():select(1)
+end)
+vim.keymap.set("n", "<C-j>", function()
+	harpoon:list():select(2)
+end)
+vim.keymap.set("n", "<C-k>", function()
+	harpoon:list():select(3)
+end)
+vim.keymap.set("n", "<C-l>", function()
+	harpoon:list():select(4)
+end)
 
-vim.keymap.set("n", "<C-,>", function() harpoon:list():prev() end)
-vim.keymap.set("n", "<C-.>", function() harpoon:list():next() end)
+vim.keymap.set("n", "<C-,>", function()
+	harpoon:list():prev()
+end)
+vim.keymap.set("n", "<C-.>", function()
+	harpoon:list():next()
+end)
 
-local treesitter = require('treesitter.treesitter_setup')
+local treesitter = require("treesitter.treesitter_setup")
 treesitter.setup()
