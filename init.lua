@@ -23,7 +23,6 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.signcolumn = "yes"
 vim.o.foldenable = false
-vim.o.wrap = false
 vim.wo.relativenumber = true
 
 --KEYMAPS
