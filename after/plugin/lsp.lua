@@ -21,24 +21,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
-vim.lsp.config("lua_ls", {
-	settings = {
-		Lua = {
-			diagnostics = {
-				disable = {
-					"undefined-global",
-					"undefined-field",
-				},
-			},
-		},
-	},
-})
-
 vim.lsp.config("dartls", {
-	on_attach = function(client)
-		vim.opt.tabstop = 2
-		vim.opt.shiftwidth = 2
-		vim.opt.softtabstop = 2
+	on_attach = function(client, bufnr)
+		vim.bo[bufnr].tabstop = 2
+		vim.bo[bufnr].shiftwidth = 2
+		vim.bo[bufnr].softtabstop = 2
 	end,
 	settings = {
 		dart = {
@@ -49,10 +36,10 @@ vim.lsp.config("dartls", {
 })
 
 vim.lsp.config("ts_ls", {
-	on_attach = function(client)
-		vim.opt.tabstop = 2
-		vim.opt.shiftwidth = 2
-		vim.opt.softtabstop = 2
+	on_attach = function(client, bufnr)
+		vim.bo[bufnr].tabstop = 2
+		vim.bo[bufnr].shiftwidth = 2
+		vim.bo[bufnr].softtabstop = 2
 	end,
 })
 
