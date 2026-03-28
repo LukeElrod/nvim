@@ -39,7 +39,7 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("n", "<leader>h", ":noh<CR>", { silent = true })
 
 --terminal
-vim.keymap.set("t", "<Esc>", [[<C-\><C-n>]])
+vim.keymap.set("t", "<S-Esc>", [[<C-\><C-n>]])
 
 --saving&quitting
 vim.keymap.set("n", "<C-s>", ":w<CR>")
