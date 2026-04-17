@@ -10,7 +10,6 @@ return {
 			yaml = { "prettierd", "prettier", stop_after_first = true },
 			json = { "prettierd", "prettier", stop_after_first = true },
 			jsonc = { "prettierd", "prettier", stop_after_first = true },
-			toml = { "prettierd", "prettier", stop_after_first = true },
 			jsx = { "prettierd", "prettier", stop_after_first = true },
 			html = { "prettierd", "prettier", stop_after_first = true },
 			css = { "prettierd", "prettier", stop_after_first = true },
