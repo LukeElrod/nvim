@@ -1,22 +1,23 @@
 # Neovim Configuration
 
 ## Requirements
+
 - Latest Neovim
 - tree sitter cli
 - C++ compiler (clang preferred)
 - ripgrep
 
 ## Default Keymaps
+
 - Leader key: `space`
 - Move lines up and down: `<A-j>` and `<A-k>`
 - Cut key override (default cut behavior removed): `m`
-- unhighlight: `<leader>h`
-- toggleable terminal: `<C-\>`
+- toggleable terminal: `<C-`>`
 - Save: `<C-s>`
 - Save all: `<F5>`
 - Close buffer: `<BS>`
 - Close all and quit: `<C-BS>`
-- Copilot chat: `` ` ``
+- unhighlight: `<leader>h`
 - Find files: `<leader>f`
 - Grep search: `<leader>g`
 - Search buffers: `<leader>b`
