@@ -6,6 +6,7 @@
 - tree sitter cli
 - C++ compiler (clang preferred)
 - ripgrep
+- nodejs
 
 ## Default Keymaps
 
