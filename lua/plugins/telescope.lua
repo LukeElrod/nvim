@@ -8,6 +8,9 @@ return {
 	main = "telescope",
 	opts = {
 		defaults = {
+			path_display = {
+				"filename_first",
+			},
 			vimgrep_arguments = {
 				"rg",
 				"--color=never",
