@@ -20,4 +20,21 @@ return {
 			},
 		},
 	},
+	{
+		"CopilotC-Nvim/CopilotChat.nvim",
+		dependencies = {
+			{ "nvim-lua/plenary.nvim", branch = "master" },
+		},
+		build = "make tiktoken",
+		opts = {
+			highlight_headers = false,
+			separator = "---",
+			error_header = "> [!ERROR] Error",
+			mappings = {
+				show_help = {
+					normal = "g?",
+				},
+			},
+		},
+	},
 }

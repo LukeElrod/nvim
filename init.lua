@@ -58,6 +58,14 @@ vim.keymap.set("i", "<Tab>", function()
 	end
 end, { expr = true })
 
+vim.keymap.set({ "n", "v" }, "`", ":CopilotChat<CR>")
+vim.api.nvim_create_autocmd("BufWinEnter", {
+	pattern = "copilot-chat",
+	callback = function()
+		vim.cmd("wincmd r")
+	end,
+})
+
 --telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>f", builtin.find_files, {})
