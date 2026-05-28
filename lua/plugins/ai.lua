@@ -37,6 +37,11 @@ return {
 					normal = "g?",
 				},
 			},
+			headers = {
+				user = " You",
+				assistant = " Copilot",
+				tool = " Tool",
+			},
 		},
 	},
 }
