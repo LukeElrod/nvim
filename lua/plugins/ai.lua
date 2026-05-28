@@ -30,6 +30,8 @@ return {
 			highlight_headers = false,
 			separator = "---",
 			error_header = "> [!ERROR] Error",
+			sticky = { "#buffer:active", "@copilot" },
+			trusted_tools = { "file", "glob", "grep" },
 			mappings = {
 				show_help = {
 					normal = "g?",
