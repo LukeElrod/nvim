@@ -26,6 +26,15 @@ return {
 			{ "nvim-lua/plenary.nvim", branch = "master" },
 		},
 		build = "make tiktoken",
+		config = function(_, opts)
+			require("CopilotChat").setup(opts)
+			vim.api.nvim_create_autocmd("FileType", {
+				pattern = "copilot-chat",
+				callback = function(args)
+					vim.treesitter.start(args.buf, "markdown")
+				end,
+			})
+		end,
 		opts = {
 			highlight_headers = false,
 			separator = "---",
