@@ -102,6 +102,3 @@ end)
 vim.keymap.set("n", "<C-.>", function()
 	harpoon:list():next()
 end)
-
-local treesitter = require("treesitter.treesitter_setup")
-treesitter.setup()

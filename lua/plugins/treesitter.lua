@@ -1,6 +1,6 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	lazy = false,
-	branch = "main",
-	build = ":TSUpdate",
+	"romus204/tree-sitter-manager.nvim",
+	opts = {
+		auto_install = true,
+	},
 }
