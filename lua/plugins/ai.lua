@@ -28,6 +28,12 @@ return {
 		},
 		opts = {
 			interactions = {
+				inline = {
+					adapter = {
+						name = "copilot",
+						model = "gpt-5.3-codex",
+					},
+				},
 				chat = {
 					adapter = {
 						name = "copilot",
