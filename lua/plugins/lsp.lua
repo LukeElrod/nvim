@@ -39,11 +39,4 @@ return {
 		},
 	},
 	{ "mfussenegger/nvim-jdtls" },
-	{
-		"MeanderingProgrammer/render-markdown.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = {
-			file_types = { "markdown", "copilot-chat" },
-		},
-	},
 }

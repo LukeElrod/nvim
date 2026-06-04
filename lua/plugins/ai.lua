@@ -21,35 +21,64 @@ return {
 		},
 	},
 	{
-		"CopilotC-Nvim/CopilotChat.nvim",
+		"olimorris/codecompanion.nvim",
+		version = "^19.0.0",
 		dependencies = {
-			{ "nvim-lua/plenary.nvim", branch = "master" },
+			"nvim-lua/plenary.nvim",
 		},
-		build = "make tiktoken",
-		config = function(_, opts)
-			require("CopilotChat").setup(opts)
-			vim.api.nvim_create_autocmd("FileType", {
-				pattern = "copilot-chat",
-				callback = function(args)
-					vim.treesitter.start(args.buf, "markdown")
-				end,
-			})
-		end,
 		opts = {
-			highlight_headers = false,
-			separator = "---",
-			error_header = "> [!ERROR] Error",
-			sticky = { "#buffer:active", "@file", "@glob", "@grep" },
-			trusted_tools = { "file", "glob", "grep" },
-			mappings = {
-				show_help = {
-					normal = "g?",
+			interactions = {
+				chat = {
+					adapter = {
+						name = "copilot",
+						model = "gpt-5.3-codex",
+					},
+					tools = {
+						["file_search"] = {
+							opts = {
+								require_approval_before = false,
+							},
+						},
+						["get_changed_files"] = {
+							opts = {
+								require_approval_before = false,
+							},
+						},
+						["get_diagnostics"] = {
+							opts = {
+								require_approval_before = false,
+							},
+						},
+						["grep_search"] = {
+							opts = {
+								require_approval_before = false,
+							},
+						},
+						["read_file"] = {
+							opts = {
+								require_approval_before = false,
+							},
+						},
+						opts = {
+							default_tools = {
+								"file_search",
+								"get_changed_files",
+								"get_diagnostics",
+								"grep_search",
+								"read_file",
+							},
+						},
+					},
 				},
 			},
-			headers = {
-				user = " You",
-				assistant = " Copilot",
-				tool = " Tool",
+			display = {
+				chat = {
+					window = {
+						sticky = true,
+						width = 0.5,
+						position = "right",
+					},
+				},
 			},
 		},
 	},
