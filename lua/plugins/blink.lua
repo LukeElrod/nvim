@@ -1,6 +1,5 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { "rafamadriz/friendly-snippets" },
 	version = "1.*",
 	opts = {
 		keymap = {
@@ -28,7 +27,7 @@ return {
 		-- Default list of enabled providers defined so that you can extend it
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
-			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+			default = { "lazydev", "lsp", "path", "buffer" },
 			providers = {
 				lazydev = {
 					name = "LazyDev",
