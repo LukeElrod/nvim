@@ -12,6 +12,7 @@ vim.o.autoindent = true
 vim.o.smartindent = true
 vim.o.signcolumn = "yes"
 vim.o.foldenable = false
-vim.wo.relativenumber = true
+vim.o.number = true
+vim.o.relativenumber = true
 
 vim.notify = require("notify")
