@@ -8,15 +8,13 @@ vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 
-vim.keymap.set({ "i", "v" }, "<C-i>", "<Esc>")
--- to train you to use <C-i> instead of <Esc> haha
-vim.keymap.set({ "i", "v" }, "<Esc>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
 
 --unhighlight
-vim.keymap.set("n", "<leader>h", ":noh<CR>", { silent = true })
+vim.keymap.set("n", "<leader>h", ":noh<CR>", { noremap = true, silent = true })
 
 --terminal
-vim.keymap.set("t", "<S-Esc>", [[<C-\><C-n>]])
+vim.keymap.set("t", "<S-Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 
 --saving&quitting
 vim.keymap.set("n", "<C-s>", ":w<CR>")
