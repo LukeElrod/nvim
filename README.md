@@ -25,7 +25,7 @@
 - Search buffers: `<leader>b`
 - Notifications: `<leader>n`
 - Code companion: `` ` ``
-- Return to normal mode: `<C-i>`
+- Return to normal mode: `jj`
 - Harpoon menu: `<leader>e`
 - Harpoon add file: `<leader>a`
 - Harpoon files 1-4: `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>`
