@@ -9,6 +9,7 @@ vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 
 vim.keymap.set("i", "jj", "<Esc>", { noremap = true, silent = true })
+vim.keymap.set("v", "<C-j>", "<Esc>", { noremap = true, silent = true })
 
 --unhighlight
 vim.keymap.set("n", "<leader>h", ":noh<CR>", { noremap = true, silent = true })

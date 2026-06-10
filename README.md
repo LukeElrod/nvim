@@ -13,7 +13,7 @@
 - Leader key: `space`
 - Move lines up and down: `<A-j>` and `<A-k>`
 - Cut key override (default cut behavior removed): `m`
-- Toggleable terminal: `<C-`>`
+- Toggleable terminal: ``<C-`>``
 - Return to normal mode in terminal: `~`
 - Save: `<C-s>`
 - Save all: `<F5>`
@@ -26,6 +26,7 @@
 - Notifications: `<leader>n`
 - Code companion: `` ` ``
 - Return to normal mode: `jj`
+- Return to normal mode from visual mode: `<C-j>`
 - Harpoon menu: `<leader>e`
 - Harpoon add file: `<leader>a`
 - Harpoon files 1-4: `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>`
