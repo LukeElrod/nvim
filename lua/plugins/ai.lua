@@ -80,7 +80,6 @@ return {
 			display = {
 				chat = {
 					window = {
-						sticky = true,
 						width = 0.5,
 						position = "right",
 					},
