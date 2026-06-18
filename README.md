@@ -24,7 +24,11 @@
 - Grep search: `<leader>g`
 - Search buffers: `<leader>b`
 - Notifications: `<leader>n`
-- Code companion: `` ` ``
+- Lazygit: `<leader>gg`
+- trouble(diagnostics) `<leader>xx`
+- global diagnostics `<leader> xX`
+- trouble symbols `<leader>xs`
+- Code companion(ai): `` ` ``
 - Return to normal mode: `jj`
 - Return to normal mode from visual mode: `<C-j>`
 - Harpoon menu: `<leader>e`
