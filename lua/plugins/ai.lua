@@ -27,6 +27,17 @@ return {
 			"nvim-lua/plenary.nvim",
 		},
 		opts = {
+			adapters = {
+				acp = {
+					claude_code = function()
+						return require("codecompanion.adapters").extend("claude_code", {
+							env = {
+								CLAUDE_CODE_OAUTH_TOKEN = os.getenv("CLAUDE_CODE_OAUTH_TOKEN"),
+							},
+						})
+					end,
+				},
+			},
 			interactions = {
 				inline = {
 					adapter = {
@@ -36,8 +47,7 @@ return {
 				},
 				chat = {
 					adapter = {
-						name = "copilot",
-						model = "gpt-5.3-codex",
+						name = "claude_code",
 					},
 					tools = {
 						["file_search"] = {
