@@ -41,7 +41,8 @@ return {
 			interactions = {
 				inline = {
 					adapter = {
-						name = "claude_code",
+						name = "copilot",
+						model = "gpt-5.3-codex",
 					},
 				},
 				chat = {
