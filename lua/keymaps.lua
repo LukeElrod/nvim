@@ -17,6 +17,24 @@ vim.keymap.set("n", "<leader>h", ":noh<CR>", { noremap = true, silent = true })
 --terminal
 vim.keymap.set("t", "<S-Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 
+local Terminal = require("toggleterm.terminal").Terminal
+local floating_terms = {}
+
+local function get_floating_term(cmd)
+	if not floating_terms[cmd] then
+		floating_terms[cmd] = Terminal:new({
+			cmd = cmd,
+			direction = "float",
+			hidden = true,
+		})
+	end
+	return floating_terms[cmd]
+end
+
+vim.keymap.set({ "n", "t" }, "`", function()
+	get_floating_term("opencode"):toggle()
+end, { desc = "Toggle opencode floating terminal" })
+
 --saving&quitting
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("n", "<F5>", ":wa<CR>")
@@ -33,9 +51,6 @@ vim.keymap.set("i", "<Tab>", function()
 		return "\t"
 	end
 end, { expr = true })
-
-vim.keymap.set("n", "`", ":CodeCompanionChat Toggle<CR>")
-vim.keymap.set({ "n", "v" }, "~", ":CodeCompanion ")
 
 --telescope
 local builtin = require("telescope.builtin")

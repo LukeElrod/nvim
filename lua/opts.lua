@@ -1,5 +1,6 @@
 vim.opt.termguicolors = true
 vim.opt.clipboard = "unnamedplus"
+vim.o.autoread = true
 
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

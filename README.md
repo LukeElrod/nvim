@@ -14,6 +14,7 @@
 - Move lines up and down: `<A-j>` and `<A-k>`
 - Cut key override (default cut behavior removed): `m`
 - Toggleable terminal: ``<C-`>``
+- opencode: `` ` ``
 - Return to normal mode in terminal: `~`
 - Save: `<C-s>`
 - Save all: `<F5>`
@@ -28,9 +29,8 @@
 - trouble(diagnostics) `<leader>xx`
 - global diagnostics `<leader> xX`
 - trouble symbols `<leader>xs`
-- Code companion(ai): `` ` ``
-- Return to normal mode: `jj`
-- Return to normal mode from visual mode: `<C-j>`
+- Extra map for return to normal mode: `jj`
+- Extra map for return to normal mode from visual mode: `<C-j>`
 - Harpoon menu: `<leader>e`
 - Harpoon add file: `<leader>a`
 - Harpoon files 1-4: `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>`
