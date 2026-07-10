@@ -52,6 +52,9 @@ vim.keymap.set("i", "<Tab>", function()
 	end
 end, { expr = true })
 
+--fixes weird bug with copilot where it doesn't dismiss suggestions when using ctrl-c instead of esc
+vim.keymap.set("i", "<C-C>", "<Esc>")
+
 --telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>f", builtin.find_files)
