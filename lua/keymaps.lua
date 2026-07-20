@@ -35,6 +35,19 @@ vim.keymap.set({ "n", "t" }, "`", function()
 	get_floating_term("opencode"):toggle()
 end, { desc = "Toggle opencode floating terminal" })
 
+vim.keymap.set("v", "~", function()
+	local selection = table.concat(
+		vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getcurpos(), {
+			type = vim.fn.mode(),
+		}),
+		"\n"
+	)
+	local term = get_floating_term("opencode")
+	term:open()
+	-- Bracketed paste keeps the terminal UI from auto-indenting pasted lines.
+	vim.api.nvim_chan_send(term.job_id, "\27[200~" .. selection .. "\27[201~")
+end, { desc = "Ask opencode about selection" })
+
 --saving&quitting
 vim.keymap.set("n", "<C-s>", ":w<CR>")
 vim.keymap.set("n", "<F5>", ":wa<CR>")
@@ -64,4 +77,8 @@ vim.keymap.set("n", "<leader>n", require("telescope").extensions.notify.notify)
 --bufferline
 vim.keymap.set("n", "<C-h>", ":BufferLineCyclePrev<CR>")
 vim.keymap.set("n", "<C-l>", ":BufferLineCycleNext<CR>")
+vim.keymap.set("n", "<C-j>", ":BufferLineMovePrev<CR>")
+vim.keymap.set("n", "<C-k>", ":BufferLineMoveNext<CR>")
 vim.keymap.set("n", "<leader>b", ":BufferLinePick<CR>")
+
+return { get_floating_term = get_floating_term }

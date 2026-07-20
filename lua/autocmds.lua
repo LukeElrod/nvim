@@ -1,3 +1,5 @@
+local get_floating_term = require("keymaps").get_floating_term
+
 --for auto reload file when ai makes an edit
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "TermLeave", "TermClose" }, {
 	pattern = "*",
@@ -13,5 +15,12 @@ vim.api.nvim_create_autocmd("FileType", {
 	callback = function()
 		vim.cmd("only")
 		vim.bo.buflisted = true
+	end,
+})
+
+--auto spawn terminal to avoid ~ map race condition
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		get_floating_term("opencode"):spawn()
 	end,
 })

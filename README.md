@@ -14,8 +14,8 @@
 - Move lines up and down: `<A-j>` and `<A-k>`
 - Cut key override (default cut behavior removed): `m`
 - Toggleable terminal: ``<C-`>``
-- opencode: `` ` ``
-- Return to normal mode in terminal: `~`
+- OpenCode: `` ` ``
+- Send selection to OpenCode: `~`
 - Save: `<C-s>`
 - Save all: `<F5>`
 - Close buffer: `<BS>`
@@ -23,17 +23,17 @@
 - unhighlight: `<leader>h`
 - Find files: `<leader>f`
 - Grep search: `<leader>g`
-- Search buffers: `<leader>b`
+- Pick buffer: `<leader>b`
 - Notifications: `<leader>n`
 - Lazygit: `<leader>gg`
-- trouble(diagnostics) `<leader>xx`
-- global diagnostics `<leader> xX`
-- trouble symbols `<leader>xs`
+- Trouble(diagnostics) `<leader>xx`
+- Global diagnostics `<leader> xX`
+- Symbols `<leader>xs`
 - Extra map for return to normal mode: `jj`
 - Extra map for return to normal mode from visual mode: `<C-j>`
-- Harpoon menu: `<leader>e`
-- Harpoon add file: `<leader>a`
-- Harpoon files 1-4: `<C-h>`, `<C-j>`, `<C-k>`, `<C-l>`
-- Harpoon prev, next: `<C-,>`, `<C-.>`
+- Cycle next buffer `<C-l>`
+- Cycle prev buffer `<C-h>`
+- Move buffer prev `<C-j>`
+- Move buffer next `<C-k>`
 
-### See dotfiles for kitty config
+### See dotfiles for ghostty config
