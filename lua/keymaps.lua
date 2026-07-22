@@ -54,17 +54,6 @@ vim.keymap.set("n", "<F5>", ":wa<CR>")
 vim.keymap.set("n", "<BS>", ":confirm bdelete<CR>")
 vim.keymap.set("n", "<C-BS>", ":qa<CR>")
 
---copilot
---this is necessary to still allow default tab behavior when copilot suggestion is not visible
-vim.keymap.set("i", "<Tab>", function()
-	local copilot = require("copilot.suggestion")
-	if copilot.is_visible() then
-		copilot.accept_line()
-	else
-		return "\t"
-	end
-end, { expr = true })
-
 --fixes weird bug with copilot where it doesn't dismiss suggestions when using ctrl-c instead of esc
 vim.keymap.set("i", "<C-C>", "<Esc>")
 

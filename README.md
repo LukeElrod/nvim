@@ -15,6 +15,7 @@
 - Cut key override (default cut behavior removed): `m`
 - Toggleable terminal: ``<C-`>``
 - OpenCode: `` ` ``
+- Accept suggestion: `<A-f>`
 - Send selection to OpenCode: `~`
 - Save: `<C-s>`
 - Save all: `<F5>`
