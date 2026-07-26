@@ -15,17 +15,6 @@ return {
 			path_display = {
 				"filename_first",
 			},
-			vimgrep_arguments = {
-				"rg",
-				"--color=never",
-				"--no-heading",
-				"--with-filename",
-				"--line-number",
-				"--column",
-				"--smart-case",
-				"--no-ignore",
-				"--fixed-strings",
-			},
 		},
 		pickers = {
 			find_files = {
