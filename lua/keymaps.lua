@@ -26,14 +26,23 @@ local function get_floating_term(cmd)
 			cmd = cmd,
 			direction = "float",
 			hidden = true,
+			highlights = {
+				NormalFloat = {
+					guibg = "#101014",
+				},
+				FloatBorder = {
+					guifg = "#101014",
+					guibg = "#101014",
+				},
+			},
 		})
 	end
 	return floating_terms[cmd]
 end
 
 vim.keymap.set({ "n", "t" }, "`", function()
-	get_floating_term("opencode"):toggle()
-end, { desc = "Toggle opencode floating terminal" })
+	get_floating_term("pi"):toggle()
+end, { desc = "Toggle agent floating terminal" })
 
 vim.keymap.set("v", "~", function()
 	local selection = table.concat(
@@ -42,11 +51,11 @@ vim.keymap.set("v", "~", function()
 		}),
 		"\n"
 	)
-	local term = get_floating_term("opencode")
+	local term = get_floating_term("pi")
 	term:open()
 	-- Bracketed paste keeps the terminal UI from auto-indenting pasted lines.
 	vim.api.nvim_chan_send(term.job_id, "\27[200~" .. selection .. "\27[201~")
-end, { desc = "Ask opencode about selection" })
+end, { desc = "Ask agent about selection" })
 
 --saving&quitting
 vim.keymap.set("n", "<C-s>", ":w<CR>")

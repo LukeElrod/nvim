@@ -14,9 +14,9 @@
 - Move lines up and down: `<A-j>` and `<A-k>`
 - Cut key override (default cut behavior removed): `m`
 - Toggleable terminal: ``<C-`>``
-- OpenCode: `` ` ``
+- Agent: `` ` ``
 - Accept suggestion: `<A-f>`
-- Send selection to OpenCode: `~`
+- Send selection to agent: `~`
 - Save: `<C-s>`
 - Save all: `<F5>`
 - Close buffer: `<BS>`
@@ -37,4 +37,4 @@
 - Move buffer prev `<C-j>`
 - Move buffer next `<C-k>`
 
-### See dotfiles for ghostty config
+### See [dotfiles](https://github.com/LukeElrod/dotfiles) for Ghostty and Pi config

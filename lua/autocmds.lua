@@ -21,6 +21,6 @@ vim.api.nvim_create_autocmd("FileType", {
 --auto spawn terminal to avoid ~ map race condition
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
-		get_floating_term("opencode"):spawn()
+		get_floating_term("pi"):spawn()
 	end,
 })
