@@ -54,7 +54,7 @@ vim.keymap.set("v", "~", function()
 	local term = get_floating_term("pi")
 	term:open()
 	-- Bracketed paste keeps the terminal UI from auto-indenting pasted lines.
-	vim.api.nvim_chan_send(term.job_id, "\27[200~" .. selection .. "\27[201~")
+	vim.api.nvim_chan_send(term.job_id, "\27[200~" .. selection .. "\27[201~\n\n")
 end, { desc = "Ask agent about selection" })
 
 --saving&quitting
