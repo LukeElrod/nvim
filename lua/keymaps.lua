@@ -1,8 +1,4 @@
 --KEYMAPS
-vim.keymap.set("n", "<Tab>", function()
-	require("oil").open()
-end)
-
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
