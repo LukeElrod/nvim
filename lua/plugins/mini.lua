@@ -24,9 +24,7 @@ return {
 			mappings = {
 				mark_set = "",
 				go_in = "L",
-				go_out = "H",
 				go_in_plus = "l",
-				go_out_plus = "h",
 			},
 		})
 
