@@ -28,6 +28,14 @@ return {
 			},
 		})
 
+		vim.api.nvim_create_autocmd("User", {
+			pattern = "MiniFilesWindowOpen",
+			callback = function(args)
+				vim.wo[args.data.win_id].number = true
+				vim.wo[args.data.win_id].relativenumber = true
+			end,
+		})
+
 		vim.keymap.set("n", "<Tab>", minifiles_toggle, { desc = "Toggle file tree" })
 	end,
 }
