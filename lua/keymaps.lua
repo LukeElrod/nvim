@@ -1,3 +1,4 @@
+local settings = require("settings")
 --KEYMAPS
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { silent = true })
 vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { silent = true })
@@ -37,7 +38,7 @@ local function get_floating_term(cmd)
 end
 
 vim.keymap.set({ "n", "t" }, "`", function()
-	get_floating_term("pi"):toggle()
+	get_floating_term(settings.agent):toggle()
 end, { desc = "Toggle agent floating terminal" })
 
 vim.keymap.set("v", "~", function()
@@ -47,7 +48,7 @@ vim.keymap.set("v", "~", function()
 		}),
 		"\n"
 	)
-	local term = get_floating_term("pi")
+	local term = get_floating_term(settings.agent)
 	term:open()
 	-- Bracketed paste keeps the terminal UI from auto-indenting pasted lines.
 	vim.api.nvim_chan_send(term.job_id, "\27[200~" .. selection .. "\27[201~\n\n")

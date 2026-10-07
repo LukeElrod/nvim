@@ -1,4 +1,5 @@
 local get_floating_term = require("keymaps").get_floating_term
+local settings = require("settings")
 local nvim_treesitter = require("nvim-treesitter")
 
 --for auto reload file when ai makes an edit
@@ -37,6 +38,6 @@ vim.api.nvim_create_autocmd("FileType", {
 --auto spawn terminal to avoid ~ map race condition
 vim.api.nvim_create_autocmd("VimEnter", {
 	callback = function()
-		get_floating_term("pi"):spawn()
+		get_floating_term(settings.agent):spawn()
 	end,
 })

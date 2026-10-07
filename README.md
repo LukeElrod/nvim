@@ -8,6 +8,12 @@
 - ripgrep
 - nodejs
 
+## Settings
+
+Copy `lua/user_settings.example.lua` to `lua/user_settings.lua` (gitignored) and edit:
+
+- `agent`: command for the agent terminal (default `pi`)
+
 ## Default Keymaps
 
 - Leader key: `space`
