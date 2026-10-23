@@ -4,5 +4,6 @@ return {
 	opts = {
 		open_mapping = [[<C-`>]],
 		direction = "tab",
+		shell = require("settings").shell,
 	},
 }
