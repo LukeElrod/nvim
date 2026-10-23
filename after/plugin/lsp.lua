@@ -56,6 +56,10 @@ vim.lsp.config("roslyn_ls", {
 	},
 })
 
+vim.api.nvim_create_user_command("LspLog", function()
+	vim.cmd.edit(vim.lsp.log.get_filename())
+end, { desc = "Open the LSP log" })
+
 vim.lsp.enable("dartls")
 vim.lsp.enable("gdscript")
 vim.lsp.enable("roslyn_ls")
