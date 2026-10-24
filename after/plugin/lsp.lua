@@ -43,19 +43,6 @@ vim.lsp.config("ts_ls", {
 	end,
 })
 
-vim.lsp.config("roslyn_ls", {
-	cmd = {
-		"dotnet",
-		vim.uv.os_homedir()
-			.. "/.local/share/nvim/mason/packages/roslyn/libexec/Microsoft.CodeAnalysis.LanguageServer.dll",
-		"--logLevel", -- this property is required by the server
-		"Information",
-		"--extensionLogDirectory", -- this property is required by the server
-		vim.fs.joinpath(vim.uv.os_tmpdir(), "roslyn_ls/logs"),
-		"--stdio",
-	},
-})
-
 vim.api.nvim_create_user_command("LspLog", function()
 	vim.cmd.edit(vim.lsp.log.get_filename())
 end, { desc = "Open the LSP log" })
